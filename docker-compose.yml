@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.15.3
+    container_name: envoy
+    hostname: envoy
+    ports:
+      - "10000:10000"
+      - "9901:9901"
+      - "18080:18080"
+    volumes:
+      - ./envoy:/etc/envoy
+
+  redis:
+    image: "redis:alpine3.12"
+    container_name: redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./data/redis:/data"
+
+  apiserver:
+    image: "proxy-api:0.1"
+    container_name: apiserver
+    hostname: apiserver
+    environment:
+      - REDIS_SERVER=redis
+    ports:
+      - "8888:8888"
+
+  worker:
+    image: "proxy-worker:0.1"
+    container_name: worker
+    hostname: worker
+    environment:
+      - REDIS_SERVER=redis
+    depends_on:
+      - redis
+    volumes:
+      - ./envoy:/opt/app/envoy

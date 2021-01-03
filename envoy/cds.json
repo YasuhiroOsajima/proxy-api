@@ -1,0 +1,18 @@
+{
+  "version_info": "0",
+  "resources": [
+    {
+      "@type": "type.googleapis.com/envoy.config.cluster.v3.Cluster",
+      "name": "abd9aef89a54956244894f9360ff9ba0",
+      "connect_timeout": "0.25s",
+      "lb_policy": "ROUND_ROBIN",
+      "type": "EDS",
+      "eds_cluster_config": {
+        "service_name": "abd9aef89a54956244894f9360ff9ba0",
+        "eds_config": {
+          "path": "/etc/envoy/eds.json"
+        }
+      }
+    }
+  ]
+}

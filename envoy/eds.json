@@ -1,0 +1,25 @@
+{
+  "version_info": "0",
+  "resources": [
+    {
+      "@type": "type.googleapis.com/envoy.api.v2.ClusterLoadAssignment",
+      "cluster_name": "abd9aef89a54956244894f9360ff9ba0",
+      "endpoints": [
+        {
+          "lb_endpoints": [
+            {
+              "endpoint": {
+                "address": {
+                  "socket_address": {
+                    "address": "172.217.175.110",
+                    "port_value": 80
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
