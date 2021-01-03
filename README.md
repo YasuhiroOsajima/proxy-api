@@ -2,6 +2,8 @@
 
 REST API for web reverse proxy by standalone envoy.
 
+`Client -- HTTP port + path --> Proxy -- HTTP port + path + HTTP Host header --> Backends`
+
 ## Setup
 Depending on following tools:
 - Python 3.8
